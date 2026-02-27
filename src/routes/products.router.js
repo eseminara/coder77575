@@ -17,6 +17,8 @@ router.get("/:pid", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const newProduct = await manager.addProduct(req.body);
+  const products = await manager.getProducts();
+  req.app.get("io").emit("products-update", products);
   res.json(newProduct);
 });
 
@@ -28,6 +30,8 @@ router.put("/:pid", async (req, res) => {
 
 router.delete("/:pid", async (req, res) => {
   await manager.deleteProduct(req.params.pid);
+  const products = await manager.getProducts();
+  req.app.get("io").emit("products-update", products);
   res.json({ status: "Producto eliminado" });
 });
 

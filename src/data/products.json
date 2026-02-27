@@ -7,5 +7,11 @@
     "thumbnail": "img.jpg",
     "code": "P1",
     "stock": 10
+  },
+  {
+    "id": "1772229471807",
+    "title": "producto 2",
+    "description": "Hola",
+    "price": 120
   }
 ]
